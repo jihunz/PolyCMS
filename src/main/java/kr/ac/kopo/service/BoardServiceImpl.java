@@ -28,6 +28,8 @@ public class BoardServiceImpl implements BoardService {
 		dao.add(item);
 		
 		dao.createTable(item.getBoardId());
+		
+		dao.createSeq(item.getBoardId());
 	}
 
 	@Override
@@ -40,6 +42,8 @@ public class BoardServiceImpl implements BoardService {
 		dao.delete(boardId);
 		
 		dao.deleteTable(boardId);
+		
+		dao.deleteSeq(boardId);
 	}
 
 }

@@ -52,6 +52,18 @@ public class BoardDaoImpl implements BoardDao {
 		
 	}
 
+	@Override
+	public void createSeq(Long boardId) {
+		sql.update("board.create_board_seq", boardId);
+		
+	}
+
+	@Override
+	public void deleteSeq(Long boardId) {
+		sql.update("board.delete_board_seq", boardId);
+		
+	}
+
 	
 
 }
