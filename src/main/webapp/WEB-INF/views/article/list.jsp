@@ -18,7 +18,6 @@
 					<tr>
 						<th>번호</th>
 						<th>제목</th>
-						<th>내용</th>
 						<th>관리</th>
 					</tr>
 				</thead>
@@ -32,9 +31,8 @@
 					<c:forEach items="${list}" var="item">
 						<tr>
 							<td>${item.articleId}</td>
-							<td>${item.subject}</td>
-							<td>${item.contents}</td>
-							<td>
+							<td><a href="view/${item.articleId}">${item.subject}</a></td>
+							<td>					
 								<a href="update/${item.articleId}">수정</a>
 								<a href="delete/${item.articleId}">삭제</a>
 							</td>
@@ -45,6 +43,7 @@
 		</div>
 		<div>
 			<a href="add">추가</a>
+			<a href="../../list">이전</a>
 		</div>
 	</div>
 </body>

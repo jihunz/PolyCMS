@@ -21,6 +21,14 @@ public class ArticleController {
 	@Autowired
 	ArticleService service;
 	
+	@GetMapping("/view/{articleId}")
+	public String view(@PathVariable Long boardId, @PathVariable Long articleId, Model model) {
+		Article item =  service.item(boardId, articleId);
+		
+		model.addAttribute("item", item);
+		
+		return path + "view";
+	}
 	
 	@GetMapping("/list")
 	public String list(@PathVariable Long boardId, Model model) {
