@@ -28,6 +28,7 @@ public class BoardController {
 		return PATH+"list";
 	}
 	
+	// long이 아닌 Long(Wrapper Class)인 이유: mapper 호출 함수의 두번째 인자가 Object라서 스프링이 자동 완성시 인식 가능
 	@GetMapping("/{boardId}")
 	public String item(@PathVariable Long boardId, Model model) {
 		Board item = service.item(boardId);
