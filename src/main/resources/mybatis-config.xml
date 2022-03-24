@@ -8,11 +8,11 @@
   </settings>
   
   <typeAliases>
-  	
-  	<typeAlias type="kr.ac.kopo.model.Board" alias="Board"/>
+  	<package name="kr.ac.kopo.model"/>
   </typeAliases>
   
   <mappers>
   	<mapper resource="mybatis/board.xml"/>
+  	<mapper resource="mybatis/article.xml"/>
   </mappers>
 </configuration>
