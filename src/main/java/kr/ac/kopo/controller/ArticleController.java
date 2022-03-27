@@ -22,6 +22,22 @@ public class ArticleController {
 	@Autowired
 	ArticleService service;
 	
+	@PostMapping("view/{articleId}/goodCount")
+	@ResponseBody
+	public String goodCount(@PathVariable Long boardId, @PathVariable Long articleId) {
+		service.goodCount(boardId, articleId);
+		
+		return "goodCount Success";
+	}
+	
+	@PostMapping("view/{articleId}/badCount")
+	@ResponseBody
+	public String badCount(@PathVariable Long boardId, @PathVariable Long articleId) {
+		service.badCount(boardId, articleId);
+		
+		return "badCount Success";
+	}
+	
 	@GetMapping("/view/{articleId}")
 	public String view(@PathVariable Long boardId, @PathVariable Long articleId, Model model) {
 		service.viewCount(boardId, articleId);

@@ -18,4 +18,8 @@ public interface ArticleService {
 
 	void viewCount(Long boardId, Long articleId);
 
+	void goodCount(Long boardId, Long articleId);
+
+	void badCount(Long boardId, Long articleId);
+
 }

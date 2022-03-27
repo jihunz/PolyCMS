@@ -52,4 +52,16 @@ public class ArticleServiceImpl implements ArticleService {
 		dao.viewCount(boardId, articleId);
 	}
 
+	@Override
+	public void goodCount(Long boardId, Long articleId) {
+		dao.goodCount(boardId, articleId);
+		
+	}
+
+	@Override
+	public void badCount(Long boardId, Long articleId) {
+		dao.badCount(boardId, articleId);
+		
+	}
+
 }

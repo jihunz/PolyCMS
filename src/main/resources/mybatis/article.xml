@@ -15,6 +15,18 @@
 		WHERE article_id=#{articleId}
 	</update>
 	
+	<update id="goodCount">
+		UPDATE board_${boardId}
+		SET good_count=GOOD_${articleId}_SEQ.NEXTVAL
+		WHERE article_id=#{articleId}
+	</update>
+	
+	<update id="badCount">
+		UPDATE board_${boardId}
+		SET bad_count=BAD_${articleId}_SEQ.NEXTVAL
+		WHERE article_id=#{articleId}
+	</update>
+	
 	<insert id="add">
 		INSERT INTO board_${boardId}
 		(article_id, subject, contents, reg_date)

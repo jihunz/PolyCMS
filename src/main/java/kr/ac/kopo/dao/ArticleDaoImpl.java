@@ -11,7 +11,7 @@ import kr.ac.kopo.model.Article;
 
 @Repository
 public class ArticleDaoImpl implements ArticleDao {
-	
+
 	@Autowired
 	SqlSession sql;
 
@@ -19,7 +19,7 @@ public class ArticleDaoImpl implements ArticleDao {
 	public List<Article> list(Long boardId) {
 		return sql.selectList("article.list", boardId);
 	}
-	
+
 	@Override
 	public void add(Article item) {
 		sql.insert("article.add", item);
@@ -28,10 +28,10 @@ public class ArticleDaoImpl implements ArticleDao {
 	@Override
 	public Article item(Long boardId, Long articleId) {
 		HashMap<String, Object> map = new HashMap<String, Object>();
-		
+
 		map.put("boardId", boardId);
 		map.put("articleId", articleId);
-		
+
 		return sql.selectOne("article.item", map);
 	}
 
@@ -43,22 +43,42 @@ public class ArticleDaoImpl implements ArticleDao {
 	@Override
 	public void delete(Long boardId, Long articleId) {
 		HashMap<String, Object> map = new HashMap<String, Object>();
-		
+
 		map.put("boardId", boardId);
 		map.put("articleId", articleId);
-		
+
 		sql.delete("article.delete", map);
 	}
 
 	@Override
 	public void viewCount(Long boardId, Long articleId) {
 		HashMap<String, Object> map = new HashMap<String, Object>();
-		
+
 		map.put("boardId", boardId);
 		map.put("articleId", articleId);
-		
+
 		sql.update("article.viewCount", map);
-		
+
+	}
+	
+	@Override
+	public void goodCount(Long boardId, Long articleId) {
+		HashMap<String, Object> map = new HashMap<String, Object>();
+
+		map.put("boardId", boardId);
+		map.put("articleId", articleId);
+
+		sql.update("article.goodCount", map);
+	}
+
+	@Override
+	public void badCount(Long boardId, Long articleId) {
+		HashMap<String, Object> map = new HashMap<String, Object>();
+
+		map.put("boardId", boardId);
+		map.put("articleId", articleId);
+
+		sql.update("article.badCount", map);
 	}
 
 	@Override
@@ -69,15 +89,15 @@ public class ArticleDaoImpl implements ArticleDao {
 	@Override
 	public void goodSeq(Long articleId) {
 		sql.update("article.create_good_seq", articleId);
-		
+
 	}
 
 	@Override
 	public void badSeq(Long articleId) {
 		sql.update("article.create_bad_seq", articleId);
-		
+
 	}
-	
+
 	@Override
 	public void deleteViewSeq(Long articleId) {
 		sql.delete("article.delete_view_seq", articleId);
@@ -86,14 +106,13 @@ public class ArticleDaoImpl implements ArticleDao {
 	@Override
 	public void deleteGoodSeq(Long articleId) {
 		sql.delete("article.delete_good_seq", articleId);
-		
+
 	}
 
 	@Override
 	public void deleteBadSeq(Long articleId) {
 		sql.delete("article.delete_bad_seq", articleId);
-		
-	}
 
+	}
 
 }
