@@ -14,7 +14,7 @@ public interface ArticleService {
 
 	void update(Article item);
 
-	void delete(Long articleId, Long articleId2);
+	void delete(Long BoardId, Long articleId);
 
 	void viewCount(Long boardId, Long articleId);
 

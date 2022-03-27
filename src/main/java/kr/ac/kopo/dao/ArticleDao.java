@@ -20,4 +20,14 @@ public interface ArticleDao {
 
 	void viewSeq(Long articleId);
 
+	void deleteViewSeq(Long articleId);
+
+	void goodSeq(Long articleId);
+
+	void badSeq(Long articleId);
+
+	void deleteGoodSeq(Long articleId);
+
+	void deleteBadSeq(Long articleId);
+
 }

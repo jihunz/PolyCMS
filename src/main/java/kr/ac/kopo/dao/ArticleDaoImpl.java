@@ -66,4 +66,34 @@ public class ArticleDaoImpl implements ArticleDao {
 		sql.update("article.create_view_seq", articleId);
 	}
 
+	@Override
+	public void goodSeq(Long articleId) {
+		sql.update("article.create_good_seq", articleId);
+		
+	}
+
+	@Override
+	public void badSeq(Long articleId) {
+		sql.update("article.create_bad_seq", articleId);
+		
+	}
+	
+	@Override
+	public void deleteViewSeq(Long articleId) {
+		sql.delete("article.delete_view_seq", articleId);
+	}
+
+	@Override
+	public void deleteGoodSeq(Long articleId) {
+		sql.delete("article.delete_good_seq", articleId);
+		
+	}
+
+	@Override
+	public void deleteBadSeq(Long articleId) {
+		sql.delete("article.delete_bad_seq", articleId);
+		
+	}
+
+
 }

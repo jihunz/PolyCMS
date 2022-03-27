@@ -29,6 +29,14 @@
 		CREATE SEQUENCE VIEW_${articeId}_SEQ
 	</update>
 	
+	<update id="create_good_seq">
+		CREATE SEQUENCE GOOD_${articeId}_SEQ
+	</update>
+	
+	<update id="create_bad_seq">
+		CREATE SEQUENCE BAD_${articeId}_SEQ
+	</update>
+	
 	<select id="item" resultType="Article">
 		SELECT *
 		FROM board_${boardId}
@@ -45,5 +53,17 @@
 		DELETE FROM board_${boardId}
 		WHERE article_id=#{articleId}
 	</delete>
+	
+	<update id="delete_view_seq">
+		DROP SEQUENCE VIEW_${articleId}_SEQ
+	</update>
+	
+	<update id="delete_good_seq">
+		DROP SEQUENCE GOOD_${articleId}_SEQ
+	</update>
+	
+	<update id="delete_bad_seq">
+		DROP SEQUENCE BAD_${articleId}_SEQ
+	</update>
 	
 </mapper>
