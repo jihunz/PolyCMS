@@ -61,4 +61,9 @@ public class ArticleDaoImpl implements ArticleDao {
 		
 	}
 
+	@Override
+	public void viewSeq(Long articleId) {
+		sql.update("article.create_view_seq", articleId);
+	}
+
 }

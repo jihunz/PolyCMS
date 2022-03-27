@@ -22,6 +22,8 @@ public class ArticleServiceImpl implements ArticleService {
 	@Override
 	public void add(Article item) {
 		dao.add(item);
+		
+		dao.viewSeq(item.getArticleId());
 	}
 
 	@Override

@@ -18,4 +18,6 @@ public interface ArticleDao {
 
 	void viewCount(Long boardId, Long articleId);
 
+	void viewSeq(Long articleId);
+
 }
