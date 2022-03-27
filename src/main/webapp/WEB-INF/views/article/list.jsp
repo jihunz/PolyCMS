@@ -12,22 +12,6 @@
 	$(function() {
 		
 	});
-
-	function viewCount() {
-	    let articleId = $(event.target).attr("articleId");
-
-	    $.ajax(`/viewCount/${articleId}`, {
-	        method: "POST",
-			data: 1,
-			contentType: false,
-			processData: false,
-	        success: result => {
-	            console.log("count success")
-				return;
-	        },
-	        error: xhr => { alert(`오류 발생: ${xhr.statusText}`) }
-	    });
-	}
 </script>
 </head>
 <body>
