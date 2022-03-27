@@ -16,4 +16,6 @@ public interface ArticleDao {
 
 	void delete(Long boardId, Long articleId);
 
+	void viewCount(Long boardId, Long articleId);
+
 }

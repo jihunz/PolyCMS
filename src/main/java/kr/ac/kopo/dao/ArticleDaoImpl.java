@@ -38,7 +38,6 @@ public class ArticleDaoImpl implements ArticleDao {
 	@Override
 	public void update(Article item) {
 		sql.update("article.update", item);
-
 	}
 
 	@Override
@@ -49,6 +48,17 @@ public class ArticleDaoImpl implements ArticleDao {
 		map.put("articleId", articleId);
 		
 		sql.delete("article.delete", map);
+	}
+
+	@Override
+	public void viewCount(Long boardId, Long articleId) {
+		HashMap<String, Object> map = new HashMap<String, Object>();
+		
+		map.put("boardId", boardId);
+		map.put("articleId", articleId);
+		
+		sql.update("article.viewCount", map);
+		
 	}
 
 }

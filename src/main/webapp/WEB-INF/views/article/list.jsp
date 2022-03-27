@@ -6,6 +6,29 @@
 <head>
 <meta charset="UTF-8">
 <title></title>
+<!-- jQuery -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<script>
+	$(function() {
+		
+	});
+
+	function viewCount() {
+	    let articleId = $(event.target).attr("articleId");
+
+	    $.ajax(`/viewCount/${articleId}`, {
+	        method: "POST",
+			data: 1,
+			contentType: false,
+			processData: false,
+	        success: result => {
+	            console.log("count success")
+				return;
+	        },
+	        error: xhr => { alert(`오류 발생: ${xhr.statusText}`) }
+	    });
+	}
+</script>
 </head>
 <body>
 	<div>
@@ -18,6 +41,7 @@
 					<tr>
 						<th>번호</th>
 						<th>제목</th>
+						<th>조회수</th>
 						<th>관리</th>
 					</tr>
 				</thead>
@@ -32,6 +56,7 @@
 						<tr>
 							<td>${item.articleId}</td>
 							<td><a href="view/${item.articleId}">${item.subject}</a></td>
+							<td>${item.viewCount}</td>
 							<td>					
 								<a href="update/${item.articleId}">수정</a>
 								<a href="delete/${item.articleId}">삭제</a>
@@ -46,5 +71,6 @@
 			<a href="../../list">이전</a>
 		</div>
 	</div>
+	<!-- <script src="../../../../resources/js/article/list.js"></script> -->
 </body>
 </html>

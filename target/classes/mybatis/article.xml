@@ -9,6 +9,12 @@
 		FROM board_${boardId}
 	</select>
 	
+	<update id="viewCount">
+		UPDATE board_${boardId}
+		SET view_count=VIEW_SEQ.NEXTVAL
+		WHERE article_id=#{articleId}
+	</update>
+	
 	<insert id="add">
 		INSERT INTO board_${boardId}
 		(article_id, subject, contents, reg_date)

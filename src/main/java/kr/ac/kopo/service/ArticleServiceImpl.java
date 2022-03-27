@@ -39,4 +39,9 @@ public class ArticleServiceImpl implements ArticleService {
 		dao.delete(boardId, articleId);
 	}
 
+	@Override
+	public void viewCount(Long boardId, Long articleId) {
+		dao.viewCount(boardId, articleId);
+	}
+
 }
