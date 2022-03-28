@@ -3,6 +3,7 @@ package kr.ac.kopo.service;
 import java.util.List;
 
 import kr.ac.kopo.model.Article;
+import kr.ac.kopo.model.ArticleCount;
 
 public interface ArticleService {
 
@@ -21,5 +22,7 @@ public interface ArticleService {
 	void goodCount(Long boardId, Long articleId);
 
 	void badCount(Long boardId, Long articleId);
+
+	void updateCount(ArticleCount item);
 
 }

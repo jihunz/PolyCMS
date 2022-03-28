@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import kr.ac.kopo.model.Article;
+import kr.ac.kopo.model.ArticleCount;
 
 @Repository
 public class ArticleDaoImpl implements ArticleDao {
@@ -113,6 +114,23 @@ public class ArticleDaoImpl implements ArticleDao {
 	public void deleteBadSeq(Long articleId) {
 		sql.delete("article.delete_bad_seq", articleId);
 
+	}
+
+	@Override
+	public void refCount(ArticleCount item) {
+		sql.update("article.ref_count", item);
+		
+	}
+
+	@Override
+	public void goodCount(ArticleCount item) {
+		sql.update("article.good_count", item);
+		
+	}
+
+	@Override
+	public void badCount(ArticleCount item) {
+		sql.update("article.bad_count", item);
 	}
 
 }

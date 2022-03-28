@@ -52,6 +52,5 @@
 			<a href="../../list">이전</a>
 		</div>
 	</div>
-	<!-- <script src="../../../../resources/js/article/list.js"></script> -->
 </body>
 </html>

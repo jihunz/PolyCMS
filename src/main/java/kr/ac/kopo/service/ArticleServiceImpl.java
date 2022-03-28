@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import kr.ac.kopo.dao.ArticleDao;
 import kr.ac.kopo.model.Article;
+import kr.ac.kopo.model.ArticleCount;
 
 @Service
 public class ArticleServiceImpl implements ArticleService {
@@ -61,6 +62,18 @@ public class ArticleServiceImpl implements ArticleService {
 	@Override
 	public void badCount(Long boardId, Long articleId) {
 		dao.badCount(boardId, articleId);
+		
+	}
+
+	@Override
+	public void updateCount(ArticleCount item) {
+		if("ref_count".equals(item.getType())) {
+			dao.refCount(item);
+		} else if("good_count".equals(item.getType())) {
+			dao.goodCount(item);
+		} else if("bad_count".equals(item.getType())) {
+			dao.badCount(item);
+		}
 		
 	}
 

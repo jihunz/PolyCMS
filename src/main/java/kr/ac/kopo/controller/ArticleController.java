@@ -8,10 +8,12 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import kr.ac.kopo.model.Article;
+import kr.ac.kopo.model.ArticleCount;
 import kr.ac.kopo.service.ArticleService;
 
 @Controller
@@ -22,6 +24,17 @@ public class ArticleController {
 	@Autowired
 	ArticleService service;
 	
+	@PostMapping("view/{articleId}")
+	@ResponseBody
+	public ArticleCount count(@PathVariable Long boardId, @PathVariable Long articleId, @RequestBody ArticleCount item) {
+		
+		item.setBoardId(boardId);
+		item.setArticleId(articleId);
+		service.updateCount(item);
+		
+		return item;
+	}
+	 /*
 	@PostMapping("view/{articleId}/goodCount")
 	@ResponseBody
 	public String goodCount(@PathVariable Long boardId, @PathVariable Long articleId) {
@@ -37,16 +50,16 @@ public class ArticleController {
 		
 		return "badCount Success";
 	}
-	
+	*/
 	@GetMapping("/view/{articleId}")
 	public String view(@PathVariable Long boardId, @PathVariable Long articleId, Model model) {
-		service.viewCount(boardId, articleId);
 		Article item =  service.item(boardId, articleId);
 		
 		model.addAttribute("item", item);
 		
 		return path + "view";
 	}
+
 	
 	@GetMapping("/list")
 	public String list(@PathVariable Long boardId, Model model) {

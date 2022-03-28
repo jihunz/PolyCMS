@@ -5,46 +5,6 @@
 <head>
 <meta charset="UTF-8">
 <title></title>
-<!-- jQuery -->
-<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-<script>
-	$(function() {
-		$("#goodBtn").click(() => goodCount());
-		
-		$("#badBtn").click(() => badCount());
-	});
-	
-	const currLoc = $(location).attr("href");
-	const locArr = currLoc.split("/");
-	const articleId = locArr[8];
-	
-	function goodCount() {
-	    $.ajax(`./${articleId}/goodCount`, {
-	        method: "POST",
-			data: 'none',
-			contentType: false,
-	        success: result => {
-	            console.log(result);
-				return;
-	        },
-	        error: xhr => { alert(`오류 발생: ${xhr.statusText}`) }
-	    });
-	}
-	
-	function badCount() {
-	    $.ajax(`./${articleId}/badCount`, {
-	        method: "POST",
-			data: 'none',
-			contentType: false,
-	        success: result => {
-	            console.log(result);
-				return;
-	        },
-	        error: xhr => { alert(`오류 발생: ${xhr.statusText}`) }
-	    });
-	}
-</script>
-<script src="../../../../resources/js/article/view.js"></script>
 </head>
 <body>
 	<div>
@@ -69,4 +29,6 @@
 		</div>
 	</div>
 </body>
+<script src="/js/jquery-3.6.0.min.js"></script>
+<script src="/js/article/article_count.js"></script>
 </html>
