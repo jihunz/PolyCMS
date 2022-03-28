@@ -15,6 +15,9 @@
 			<h4>내용 : ${item.contents}</h4>
 		</div>
 		<div>
+			<h4>조회수 : ${item.viewCount}</h4>
+		</div>
+		<div>
 			<h4>좋아요 : ${item.goodCount}</h4>
 		</div>
 		<div>
