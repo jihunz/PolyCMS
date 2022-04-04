@@ -9,6 +9,7 @@ import org.springframework.stereotype.Repository;
 
 import kr.ac.kopo.model.Article;
 import kr.ac.kopo.model.ArticleCount;
+import kr.ac.kopo.util.Pager;
 
 @Repository
 public class ArticleDaoImpl implements ArticleDao {
@@ -17,8 +18,14 @@ public class ArticleDaoImpl implements ArticleDao {
 	SqlSession sql;
 
 	@Override
-	public List<Article> list(Long boardId) {
-		return sql.selectList("article.list", boardId);
+	public List<Article> list(Long boardId, Pager pager) {
+		HashMap<String, Object> map = new HashMap<String, Object>();
+		
+		map.put("boardId", boardId);
+		map.put("page", pager.getPage());
+		map.put("perPage", pager.getPerPage());
+		
+		return sql.selectList("article.list", map);
 	}
 
 	@Override
@@ -66,6 +73,15 @@ public class ArticleDaoImpl implements ArticleDao {
 	@Override
 	public void badCount(ArticleCount item) {
 		sql.update("article.bad_count", item);
+	}
+
+	@Override
+	public double total(Long boardId, Pager pager) {
+		HashMap<String, Object> map = new HashMap<String, Object>();
+		
+		map.put("boardId", boardId);
+		
+		return sql.selectOne("article.total", map);
 	}
 
 }

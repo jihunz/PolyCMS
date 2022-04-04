@@ -25,6 +25,6 @@ function ajax_article_count(item) {
 			$(`#${item.type} p`).text(Number(count) + 1);
 			
 		},
-        error: xhr => alert(`[실패] ${item.type} 수 증가: ${xhr}`)
+        error: (xhr, result) => alert(`[실패] ${item.type} 수 증가: ${result.type}`)
     });
 }

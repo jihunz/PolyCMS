@@ -4,10 +4,11 @@ import java.util.List;
 
 import kr.ac.kopo.model.Article;
 import kr.ac.kopo.model.ArticleCount;
+import kr.ac.kopo.util.Pager;
 
 public interface ArticleService {
 
-	List<Article> list(Long boardId);
+	List<Article> list(Long boardId, Pager pager);
 
 	void add(Article item);
 
@@ -18,5 +19,9 @@ public interface ArticleService {
 	void delete(Long BoardId, Long articleId);
 
 	void updateCount(ArticleCount item);
+
+	void dummy(Long boardId);
+
+	void init(Long boardId);
 
 }

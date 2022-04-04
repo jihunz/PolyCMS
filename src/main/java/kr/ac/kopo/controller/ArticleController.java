@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import kr.ac.kopo.model.Article;
 import kr.ac.kopo.model.ArticleCount;
 import kr.ac.kopo.service.ArticleService;
+import kr.ac.kopo.util.Pager;
 
 @Controller
 @RequestMapping("/board/{boardId}/article")
@@ -23,6 +24,20 @@ public class ArticleController {
 	
 	@Autowired
 	ArticleService service;
+	
+	@RequestMapping("/dummy")
+	public String dummy(@PathVariable Long boardId) {
+		service.dummy(boardId);
+		
+		return "redirect:list";
+	}
+	
+	@RequestMapping("/init")
+	public String init(@PathVariable Long boardId) {
+		service.init(boardId);
+		
+		return "redirect:list";
+	}
 	
 	@PostMapping("view/{articleId}")
 	@ResponseBody
@@ -46,8 +61,9 @@ public class ArticleController {
 
 	
 	@GetMapping("/list")
-	public String list(@PathVariable Long boardId, Model model) {
-		List<Article> list = service.list(boardId);
+	public String list(@PathVariable Long boardId, Pager pager, Model model) {
+				
+		List<Article> list = service.list(boardId, pager);
 		
 		model.addAttribute("list", list);
 		
