@@ -18,14 +18,14 @@
 			<h4>조회수 : ${item.viewCount}</h4>
 		</div>
 		<div>
-			<h4>좋아요 : ${item.goodCount}</h4>
-		</div>
-		<div>
-			<h4>싫어요 : ${item.badCount}</h4>
-		</div>
-		<div>
-			<button id="goodBtn">좋아요</button>
-			<button id="badBtn">싫어요</button>
+			<div id="good_count">
+				<p>${item.goodCount}</p>
+				<button>좋아요</button>			
+			</div>
+			<div id="bad_count">
+				<p>${item.badCount}</p>
+				<button>싫어요</button>
+			</div>
 		</div>
 		<div>
 			<a href="../list">목록</a>

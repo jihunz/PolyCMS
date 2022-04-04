@@ -17,24 +17,6 @@ public interface ArticleDao {
 
 	void delete(Long boardId, Long articleId);
 
-	void viewCount(Long boardId, Long articleId);
-
-	void viewSeq(Long articleId);
-
-	void deleteViewSeq(Long articleId);
-
-	void goodSeq(Long articleId);
-
-	void badSeq(Long articleId);
-
-	void deleteGoodSeq(Long articleId);
-
-	void deleteBadSeq(Long articleId);
-
-	void goodCount(Long boardId, Long articleId);
-
-	void badCount(Long boardId, Long articleId);
-
 	void refCount(ArticleCount item);
 
 	void goodCount(ArticleCount item);

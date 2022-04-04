@@ -23,10 +23,6 @@ public class ArticleServiceImpl implements ArticleService {
 	@Override
 	public void add(Article item) {
 		dao.add(item);
-		
-		dao.viewSeq(item.getArticleId());
-		dao.goodSeq(item.getArticleId());
-		dao.badSeq(item.getArticleId());
 	}
 
 	@Override
@@ -42,27 +38,6 @@ public class ArticleServiceImpl implements ArticleService {
 	@Override
 	public void delete(Long boardId, Long articleId) {
 		dao.delete(boardId, articleId);
-		
-		dao.deleteViewSeq(articleId);
-		dao.deleteGoodSeq(articleId);
-		dao.deleteBadSeq(articleId);
-	}
-
-	@Override
-	public void viewCount(Long boardId, Long articleId) {
-		dao.viewCount(boardId, articleId);
-	}
-
-	@Override
-	public void goodCount(Long boardId, Long articleId) {
-		dao.goodCount(boardId, articleId);
-		
-	}
-
-	@Override
-	public void badCount(Long boardId, Long articleId) {
-		dao.badCount(boardId, articleId);
-		
 	}
 
 	@Override
