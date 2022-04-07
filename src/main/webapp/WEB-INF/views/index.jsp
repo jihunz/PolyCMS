@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,6 +9,24 @@
 </head>
 <body>
 	<h1>PolyCMS</h1>
+	
+	<c:if test="${sessionScope.member != null}">
+		<div>
+			<span>${sessionScope.member.id}</span>
+			<span>님 환영합니다</span>
+		</div>
+		<div>
+			<a href="/logout">로그아웃</a>
+		</div>
+	</c:if>
+	
+	<c:if test="${sessionScope.member == null}">
+		<div>
+			<a href="/login">로그인</a>
+		</div>
+	</c:if>
+	
 	<a href="board/list">게시판 목록</a>
+	<a href="member/list">회원 목록</a>
 </body>
 </html>

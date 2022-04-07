@@ -17,8 +17,7 @@
 		SELECT * FROM 
     		(SELECT ROWNUM rnum, T1.* FROM 
 				(<include refid="search"></include>) T1)
-		WHERE rnum
-		BETWEEN (#{page} - 1) * #{perPage} + 1
+		WHERE rnum BETWEEN (#{page} - 1) * #{perPage} + 1
 		AND (#{page} * #{perPage})
 	</select>
 		
