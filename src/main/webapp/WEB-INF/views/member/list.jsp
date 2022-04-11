@@ -49,7 +49,12 @@
 			</table>
 		</div>
 		<div>
-			<a href="add">추가</a>
+			<div>
+				<a href="add">추가</a>
+			</div>
+			<div>
+				<a href="../">이전</a>
+			</div>
 		</div>
 	</div>
 </body>

@@ -79,12 +79,17 @@
 			</table>
 		</div>
 		<div>
-			<a href="add">추가</a>
-			<a href="../../list">이전</a>
-			<a href="dummy">대량추가</a>
-			<a href="init">초기화</a>
 			<div>
-				<a href="add?page=${pager.page}">추가</a>
+				<a href="add">추가</a>
+			</div>
+			<div>
+				<a href="../../list">이전</a>
+			</div>
+			<div>
+				<a href="dummy">대량추가</a>
+			</div>
+			<div>
+				<a href="init">초기화</a>
 			</div>
 		</div>
 	</div>
