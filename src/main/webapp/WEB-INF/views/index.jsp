@@ -25,8 +25,22 @@
 			<a href="/login">로그인</a>
 		</div>
 	</c:if>
+	<div>
+		<ul>
+			<li><a href="board/list">게시판 관리</a></li>
+			<li><a href="member/list">사용자 관리</a></li>
+		</ul>	
+	</div>
+	<div>
+		<ul>
+			<c:if test="${list.size() < 1}">
+				<li>등록된 게시판이 없습니다</li>
+			</c:if>
+			<c:forEach var="item" items="${list}">
+				<li><a href="/board/${item.boardId}/article/list">${item.subject}</a></li>			
+			</c:forEach>
+		</ul>
+	</div>
 	
-	<a href="board/list">게시판 목록</a>
-	<a href="member/list">회원 목록</a>
 </body>
 </html>

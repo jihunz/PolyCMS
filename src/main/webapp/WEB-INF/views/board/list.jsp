@@ -31,7 +31,6 @@
 							<td colspan="7">등록 된 게시판이 없습니다.</td>
 						</tr>
 					</c:if>
-					
 					<c:forEach items="${list}" var="item">
 						<tr>
 							<td>${item.boardId}</td>
@@ -51,7 +50,10 @@
 			</table>
 		</div>
 		<div>
-			<a href="add">추가</a>
+			<ul>
+				<li><a href="add">추가</a></li>
+				<li><a href="/">이전</a></li>
+			</ul>
 		</div>
 	</div>
 </body>
