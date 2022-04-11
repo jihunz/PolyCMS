@@ -50,9 +50,12 @@
 			view_count NUMBER DEFAULT 0, /* 조회수 */
 			good_count NUMBER DEFAULT 0, /* 좋아요 */
 			bad_count NUMBER DEFAULT 0, /* 싫어요 */
+			member_id VARCHAR2(32), /* 아이디 */
 			
-			CONSTRAINT PK_board_${boardId} PRIMARY KEY (article_id)
-		)
+			CONSTRAINT PK_board_${boardId} PRIMARY KEY (article_id),
+			CONSTRAINT FK_member_TO_board_${boardId}
+			FOREIGN KEY (member_id)	REFERENCES member (id)
+			)
 	</update>
 	
 	<update id="delete_board">

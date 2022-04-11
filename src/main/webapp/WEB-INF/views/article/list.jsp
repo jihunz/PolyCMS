@@ -12,12 +12,26 @@
 		<div>
 			<h3>${boardId}목록</h3>
 		</div>
+		<div>총 ${pager.total} 건	</div>
+		<div>
+			<form>
+				<select name="search">
+					<option value="0">전체</option>
+					<option value="1">제목</option>
+					<option value="2">내용</option>
+					<option value="3">작성자</option>
+				</select>
+				<input type="text" name="keyword" placeholder="검색어를 입력해주세요"/>
+				<button>검색</button>
+			</form>
+		</div>
 		<div>
 			<table border='1'>
 				<thead>
 					<tr>
 						<th>번호</th>
 						<th>제목</th>
+						<th>작성자</th>
 						<th>조회수</th>
 						<th>좋아요</th>
 						<th>싫어요</th>
@@ -37,6 +51,7 @@
 						<tr>
 							<td>${item.articleId}</td>
 							<td><a href="view/${item.articleId}">${item.subject}</a></td>
+							<td>${item.memberId}</td>
 							<td>${item.viewCount}</td>
 							<td>${item.goodCount}</td>
 							<td>${item.badCount}</td>
@@ -51,7 +66,7 @@
 				</tbody>
 				<tfoot>
 					<tr>
-						<td colspan="6">
+						<td colspan="7">
 							<div>
 								<div>
 									<a href="?page=1">처음</a>

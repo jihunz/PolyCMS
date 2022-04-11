@@ -11,6 +11,7 @@ public class Article {
 	private Long viewCount;
 	private Long goodCount;
 	private Long badCount;
+	private String memberId;
 
 	private Long boardId;
 
@@ -84,5 +85,13 @@ public class Article {
 
 	public void setBoardId(Long boardId) {
 		this.boardId = boardId;
+	}
+
+	public String getMemberId() {
+		return memberId;
+	}
+
+	public void setMemberId(String memberId) {
+		this.memberId = memberId;
 	}
 }

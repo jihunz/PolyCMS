@@ -6,6 +6,17 @@
 <mapper namespace="article">
 	<sql id="search">
 		SELECT * FROM board_${boardId}
+		<where>
+			<if test="search == 1">
+				subject LIKE CONCAT(CONCAT(%, #{keyword}), %)
+			</if>
+			<if test="search == 2">
+				contents LIKE CONCAT(CONCAT(%, #{keyword}), %)
+			</if>
+			<if test="search == 3">
+				member_id=#{keyword}
+			</if>
+		</where>
 		ORDER BY article_id DESC
 	</sql>
 	
@@ -23,8 +34,8 @@
 		
 	<insert id="add">
 		INSERT INTO board_${boardId}
-		(article_id, subject, contents, reg_date)
-		VALUES(BOARD_${boardId}_SEQ.nextval, #{subject}, #{contents}, sysdate)
+		(article_id, subject, contents, reg_date, member_id)
+		VALUES(BOARD_${boardId}_SEQ.nextval, #{subject}, #{contents}, sysdate, #{memberId})
 	</insert>
 	
 	<select id="item" resultType="Article">

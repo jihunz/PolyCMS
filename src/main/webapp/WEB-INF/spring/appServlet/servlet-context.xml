@@ -43,10 +43,9 @@
 			<mapping path="/member/**" />
 			
 			<exclude-mapping path="/board/*/article/**" />
+			<!-- UserInterceptor가 허용하는 매핑을 막지 않기위해서 해당 매핑을 예외로 허용 -->
 			<beans:bean class="kr.ac.kopo.util.AdminInterceptor"></beans:bean>
 		</interceptor>
-
-		
 	</interceptors>
 
 </beans:beans>

@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import kr.ac.kopo.dao.ArticleDao;
 import kr.ac.kopo.model.Article;
 import kr.ac.kopo.model.ArticleCount;
+import kr.ac.kopo.pager.ArticlePager;
 import kr.ac.kopo.util.Pager;
 
 @Service
@@ -18,12 +19,12 @@ public class ArticleServiceImpl implements ArticleService {
 	ArticleDao dao;
 
 	@Override
-	public List<Article> list(Long boardId, Pager pager) {
-		double total = dao.total(boardId, pager);
+	public List<Article> list(ArticlePager pager) {
+		double total = dao.total(pager);
 		
 		pager.setTotal(total);
 		
-		return dao.list(boardId, pager);
+		return dao.list(pager);
 	}
 
 	@Override
@@ -67,22 +68,22 @@ public class ArticleServiceImpl implements ArticleService {
 			item.setBoardId(boardId);
 			item.setSubject("제목 테스트 " + id);
 			item.setContents("내용 테스트 " + id);
+			item.setMemberId("admin");
 			dao.add(item);
 		}
-		
 	}
 
 	@Override
 	public void init(Long boardId) {
-		Pager pager = new Pager();
+		ArticlePager pager = new ArticlePager();
+		pager.setBoardId(boardId);
 		pager.setPerPage(9999);
 		
-		List<Article> list = dao.list(boardId, pager);
+		List<Article> list = dao.list(pager);
 		
 		for(Article item : list) {
 			dao.delete(boardId, item.getArticleId());
 		}		
 	}
-
 
 }
