@@ -2,9 +2,11 @@ package kr.ac.kopo.service;
 
 import java.util.List;
 
+import org.aspectj.lang.annotation.Pointcut;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import kr.ac.kopo.aspects.PointcutLogin;
 import kr.ac.kopo.dao.MemberDao;
 import kr.ac.kopo.model.Member;
 import kr.ac.kopo.util.Pager;
@@ -45,6 +47,7 @@ public class MemberServiceImpl implements MemberService {
 	}
 
 	@Override
+	@PointcutLogin
 	public boolean login(Member item) {
 		Member member = dao.login(item);
 		
