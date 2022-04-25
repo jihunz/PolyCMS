@@ -6,6 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <title></title>
+<script src="/js/drag_order_dom.js"></script>
 </head>
 <body>
 	<div>
@@ -49,12 +50,12 @@
 
 					<c:forEach items="${list}" var="item">
 						<tr>
-							<td>${item.articleId}</td>
-							<td><a href="view/${item.articleId}">${item.subject}</a></td>
-							<td>${item.memberId}</td>
-							<td>${item.viewCount}</td>
-							<td>${item.goodCount}</td>
-							<td>${item.badCount}</td>
+							<td class="dragItem">${item.articleId}</td>
+							<td class="dragItem"><a href="view/${item.articleId}">${item.subject}</a></td>
+							<td class="dragItem">${item.memberId}</td>
+							<td class="dragItem">${item.viewCount}</td>
+							<td class="dragItem">${item.goodCount}</td>
+							<td class="dragItem">${item.badCount}</td>
 							<c:if test="${sessionScope.member != null}">
 								<td>
 									<a href="update/${item.articleId}">수정</a>
@@ -108,5 +109,8 @@
 			</div>
 		</div>
 	</div>
+	<script type="text/javascript">
+		new DragOrder("tbody")
+	</script>
 </body>
 </html>
