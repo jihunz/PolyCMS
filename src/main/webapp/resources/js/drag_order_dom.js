@@ -90,14 +90,17 @@ class DragOrder {
         this.list.forEach( item => {
             const order = parseInt(item.getAttribute("data-order"));
 
-            if(source_ < target_) {
+            
+            if(source_ < target_) { // 위에서 아래로 옮길 경우
+                // insertBefore(드래그한 대상, drop 위치에 있는 요소의 다음 형제(예: 3으로 옮길 경우 4))
                 this.target.parentNode.insertBefore(this.source, this.target.nextSibling);
 
                 if(order == source_)
                     item.setAttribute("data-order", target_);
                 else if(order > source_ && order <= target_)
                     item.setAttribute("data-order", order - 1);                    
-            } else {
+            } else { // 아래에서 위로 옮길 경우
+                // insertBefore이기 때문에 옮길 자리의 이전을 지정해주면 됨 
                 this.target.parentNode.insertBefore(this.source, this.target);
 
                 if(order == source_)

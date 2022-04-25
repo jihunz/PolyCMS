@@ -49,13 +49,13 @@
 					</c:if>
 
 					<c:forEach items="${list}" var="item">
-						<tr>
-							<td class="dragItem">${item.articleId}</td>
-							<td class="dragItem"><a href="view/${item.articleId}">${item.subject}</a></td>
-							<td class="dragItem">${item.memberId}</td>
-							<td class="dragItem">${item.viewCount}</td>
-							<td class="dragItem">${item.goodCount}</td>
-							<td class="dragItem">${item.badCount}</td>
+						<tr class="dragItem">
+							<td>${item.articleId}</td>
+							<td><a href="view/${item.articleId}">${item.subject}</a></td>
+							<td>${item.memberId}</td>
+							<td>${item.viewCount}</td>
+							<td>${item.goodCount}</td>
+							<td>${item.badCount}</td>
 							<c:if test="${sessionScope.member != null}">
 								<td>
 									<a href="update/${item.articleId}">수정</a>
